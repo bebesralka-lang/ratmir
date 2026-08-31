@@ -1,1 +1,1090 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Алина ❤️ Ратмир — наша история</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* =============================================================
+                   СБРОС И ПЕРЕМЕННЫЕ
+                ============================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --pink: #e182c3;
+            --gold: #c9a96e;
+            --gold-light: #e8d5a3;
+            --burgundy: #8e385c;
+            --bg-dark: #2a1a22;
+            --text: #f0ece6;
+            --text-muted: #c4b0b8;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --radius: 28px;
+            --transition: 0.4s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* =============================================================
+                   ОБЩИЕ СТИЛИ
+                ============================================================= */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        .section-title .pink {
+            color: var(--pink);
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* =============================================================
+                   ШАПКА (HERO)
+                ============================================================= */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(142, 56, 92, 0.3), rgba(26, 18, 22, 0.7));
+            border: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4) blur(3px);
+            z-index: 0;
+        }
+
+        .hero * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .logo-top {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: 8px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .hero .names {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 60px rgba(225, 130, 195, 0.15);
+            letter-spacing: 4px;
+        }
+        .hero .names .heart {
+            color: var(--pink);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            display: inline-block;
+            animation: heartbeat 1.8s infinite;
+        }
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: var(--gold-light);
+            margin-top: 12px;
+            font-style: italic;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        .hero .date {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .hero .counter {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 14px 30px;
+            border-radius: 60px;
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            display: inline-block;
+        }
+        .hero .counter .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+        .hero .counter .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            margin-left: 8px;
+        }
+
+        /* =============================================================
+                   МУЗЫКА
+                ============================================================= */
+        .music-section {
+            text-align: center;
+            padding: 20px 0 30px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+        .music-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            border-radius: 60px;
+            padding: 12px 32px;
+            color: var(--text);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--gold);
+        }
+        .music-btn .icon {
+            font-size: 1.4rem;
+        }
+        .music-btn .song-name {
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        /* =============================================================
+                   ПОЛЯРОИДЫ НА НИТОЧКЕ (ВИДЕО)
+                ============================================================= */
+        .video-section {
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .string {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px 40px;
+            padding: 40px 10px 20px;
+        }
+
+        /* ниточка */
+        .string::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 5%;
+            right: 5%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+            opacity: 0.3;
+            border-radius: 10px;
+        }
+
+        .polaroid {
+            background: rgba(255, 248, 240, 0.06);
+            backdrop-filter: blur(6px);
+            padding: 8px 8px 16px 8px;
+            border-radius: 8px 8px 14px 14px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+            width: 180px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(201, 169, 110, 0.15);
+        }
+
+        /* прищепка */
+        .polaroid::before {
+            content: '📎';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            opacity: 0.4;
+            filter: grayscale(0.5);
+        }
+
+        .polaroid:nth-child(1) {
+            transform: rotate(-2deg);
+        }
+        .polaroid:nth-child(2) {
+            transform: rotate(3deg);
+        }
+        .polaroid:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+        .polaroid:nth-child(4) {
+            transform: rotate(2deg);
+        }
+        .polaroid:nth-child(5) {
+            transform: rotate(-3deg);
+        }
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg) !important;
+        }
+
+        .polaroid video {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: #1a1113;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .polaroid video:hover {
+            filter: brightness(1.05);
+        }
+
+        .polaroid .caption {
+            font-family: 'Georgia', cursive;
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            letter-spacing: 1px;
+            font-style: italic;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* =============================================================
+                   ГАЛЕРЕЯ ФОТО
+                ============================================================= */
+        .photo-section {
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .photo-item {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(201, 169, 110, 0.15);
+            z-index: 2;
+        }
+
+        .photo-item .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            font-size: 0.55rem;
+            color: var(--text);
+            opacity: 0;
+            transition: var(--transition);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+        }
+
+        /* =============================================================
+                   ИСТОРИЯ ЛЮБВИ
+                ============================================================= */
+        .story-section {
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .story-text {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .story-text .gold {
+            color: var(--gold);
+            font-style: normal;
+        }
+        .story-text .pink {
+            color: var(--pink);
+            font-style: normal;
+        }
+
+        /* =============================================================
+                   ТАЙМЕР
+                ============================================================= */
+        .timer-section {
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .timer-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .timer-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            border-radius: 16px;
+            padding: 14px 20px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .timer-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .timer-item .label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        /* =============================================================
+                   ПОСЛАНИЕ
+                ============================================================= */
+        .letter-section {
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .letter-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(201, 169, 110, 0.06);
+            border-radius: 24px;
+            padding: 30px 35px;
+            position: relative;
+        }
+
+        .letter-box::before {
+            content: '💌';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+        }
+
+        .letter-box .letter-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+        }
+        .letter-box .letter-text .gold {
+            color: var(--gold);
+            font-style: normal;
+        }
+        .letter-box .letter-sign {
+            text-align: right;
+            margin-top: 16px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--pink);
+            letter-spacing: 2px;
+        }
+
+        /* =============================================================
+                   СЮРПРИЗ
+                ============================================================= */
+        .surprise-section {
+            padding: 30px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            margin-bottom: 30px;
+        }
+
+        .kiss-btn {
+            background: rgba(225, 130, 195, 0.08);
+            border: 2px solid rgba(225, 130, 195, 0.15);
+            border-radius: 60px;
+            padding: 14px 40px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 0 40px rgba(225, 130, 195, 0.03);
+        }
+
+        .kiss-btn:hover {
+            background: rgba(225, 130, 195, 0.12);
+            border-color: var(--pink);
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(225, 130, 195, 0.06);
+        }
+
+        .kiss-btn .count {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--pink);
+            min-width: 40px;
+        }
+
+        .kiss-btn .heart-icon {
+            font-size: 1.6rem;
+            animation: heartbeat 1.8s infinite;
+        }
+
+        .confetti-btn {
+            background: rgba(201, 169, 110, 0.06);
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            border-radius: 60px;
+            padding: 10px 28px;
+            color: var(--text);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            margin-top: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .confetti-btn:hover {
+            background: rgba(201, 169, 110, 0.08);
+            border-color: var(--gold);
+        }
+
+        /* =============================================================
+                   ФУТЕР
+                ============================================================= */
+        .footer {
+            text-align: center;
+            padding: 30px 20px 10px;
+            border-top: 1px solid rgba(201, 169, 110, 0.04);
+            margin-top: 10px;
+        }
+
+        .footer .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+        }
+        .footer .brand .gold {
+            color: var(--gold);
+        }
+        .footer .brand .heart {
+            color: var(--pink);
+        }
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 6px;
+            opacity: 0.3;
+        }
+
+        /* =============================================================
+                   КОНФЕТТИ
+                ============================================================= */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .confetti-piece {
+            position: absolute;
+            font-size: 22px;
+            animation: confettiFall linear forwards;
+            opacity: 0.8;
+            user-select: none;
+        }
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0.5);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        /* =============================================================
+                   АДАПТАЦИЯ
+                ============================================================= */
+        @media (max-width: 700px) {
+            body {
+                padding: 10px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .hero .names {
+                font-size: 2.6rem;
+            }
+            .hero .counter .number {
+                font-size: 1.8rem;
+            }
+            .polaroid {
+                width: 140px;
+            }
+            .polaroid video {
+                aspect-ratio: 1 / 1;
+            }
+            .string {
+                gap: 16px 24px;
+                padding: 30px 6px 16px;
+            }
+            .string::before {
+                top: 8px;
+                left: 2%;
+                right: 2%;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 10px;
+            }
+            .timer-item {
+                min-width: 60px;
+                padding: 10px 14px;
+            }
+            .timer-item .number {
+                font-size: 1.8rem;
+            }
+            .letter-box {
+                padding: 20px 18px;
+            }
+            .letter-box .letter-text {
+                font-size: 0.85rem;
+            }
+            .kiss-btn {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+            .kiss-btn .count {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .polaroid {
+                width: 110px;
+                padding: 4px 4px 10px 4px;
+            }
+            .polaroid video {
+                border-radius: 4px;
+            }
+            .polaroid .caption {
+                font-size: 0.45rem;
+            }
+            .string {
+                gap: 12px 16px;
+                padding: 24px 4px 12px;
+            }
+            .string::before {
+                top: 6px;
+            }
+            .hero .names {
+                font-size: 2rem;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 6px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .timer-item {
+                min-width: 50px;
+                padding: 6px 10px;
+            }
+            .timer-item .number {
+                font-size: 1.4rem;
+            }
+            .timer-item .label {
+                font-size: 0.5rem;
+            }
+            .letter-box {
+                padding: 16px 12px;
+            }
+            .letter-box .letter-text {
+                font-size: 0.75rem;
+            }
+            .letter-box .letter-sign {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================================
+        ГЛАВНЫЙ ЭКРАН (HERO)
+        ============================================================ -->
+        <section class="hero">
+            <div class="logo-top">SQST ✦</div>
+            <div class="names">
+                Алина <span class="heart">❤</span> Ратмир
+            </div>
+            <div class="subtitle">— наша история любви —</div>
+            <div class="date">с 3 марта 2023</div>
+            <div class="counter">
+                <span class="number" id="daysCounter">0</span>
+                <span class="label">дней вместе</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        МУЗЫКА
+        ============================================================ -->
+        <section class="music-section">
+            <button class="music-btn" id="musicBtn">
+                <span class="icon">🎵</span>
+                <span>Наша песня — <span class="song-name" id="songName">(добавь название)</span></span>
+                <span id="musicStatus">▶</span>
+            </button>
+        </section>
+
+        <!-- ============================================================
+        ВИДЕО (поляроиды на ниточке)
+        ============================================================ -->
+        <section class="video-section">
+            <h2 class="section-title">🎬 Наши <span class="pink">моменты</span></h2>
+            <p class="section-sub">живые кадры, которые мы храним</p>
+
+            <div class="string">
+                <div class="polaroid">
+                    <video src="video1.mp4" muted loop playsinline></video>
+                    <div class="caption">✨ наш первый танец</div>
+                </div>
+                <div class="polaroid">
+                    <video src="video2.mp4" muted loop playsinline></video>
+                    <div class="caption">🌅 закат на море</div>
+                </div>
+                <div class="polaroid">
+                    <video src="video3.mp4" muted loop playsinline></video>
+                    <div class="caption">🎡 счастье в парке</div>
+                </div>
+                <div class="polaroid">
+                    <video src="video4.mp4" muted loop playsinline></video>
+                    <div class="caption">❄️ зимняя сказка</div>
+                </div>
+                <div class="polaroid">
+                    <video src="video5.mp4" muted loop playsinline></video>
+                    <div class="caption">🌸 весеннее утро</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ФОТОГАЛЕРЕЯ
+        ============================================================ -->
+        <section class="photo-section">
+            <h2 class="section-title">📷 Кадры, которые <span class="pink">мы храним</span></h2>
+            <p class="section-sub">наши самые тёплые моменты</p>
+
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="photo1.jpg" alt="Фото 1" />
+                    <div class="photo-caption">💕 первый поцелуй</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo2.jpg" alt="Фото 2" />
+                    <div class="photo-caption">🌊 у океана</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo3.jpg" alt="Фото 3" />
+                    <div class="photo-caption">🎂 день рождения</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo4.jpg" alt="Фото 4" />
+                    <div class="photo-caption">🍂 осенняя прогулка</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo5.jpg" alt="Фото 5" />
+                    <div class="photo-caption">✨ просто вместе</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ИСТОРИЯ ЛЮБВИ
+        ============================================================ -->
+        <section class="story-section">
+            <h2 class="section-title">📖 Наша <span class="pink">история</span></h2>
+
+            <div class="story-text">
+                <p>
+                    Они встретились <span class="gold">3 марта 2023</span> года.
+                    С тех пор каждый день — это новая глава их книги любви.
+                </p>
+                <p style="margin-top:12px;">
+                    <span class="gold">Алина</span> и <span class="gold">Ратмир</span> —
+                    две половинки одного целого. Их история полна
+                    <span class="pink">нежности</span>, <span class="pink">смеха</span>
+                    и <span class="pink">тёплых объятий</span>.
+                </p>
+                <p style="margin-top:12px;">
+                    И это только начало их большого пути 💕
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ТАЙМЕР
+        ============================================================ -->
+        <section class="timer-section">
+            <h2 class="section-title">⏳ До нашей <span class="pink">годовщины</span></h2>
+            <p class="section-sub">3 марта 2026 — 3 года вместе</p>
+
+            <div class="timer-box">
+                <div class="timer-item">
+                    <div class="number" id="tDays">00</div>
+                    <div class="label">дней</div>
+                </div>
+                <div class="timer-item">
+                    <div class="number" id="tHours">00</div>
+                    <div class="label">часов</div>
+                </div>
+                <div class="timer-item">
+                    <div class="number" id="tMinutes">00</div>
+                    <div class="label">минут</div>
+                </div>
+                <div class="timer-item">
+                    <div class="number" id="tSeconds">00</div>
+                    <div class="label">секунд</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ПОСЛАНИЕ
+        ============================================================ -->
+        <section class="letter-section">
+            <h2 class="section-title">💌 Послание <span class="pink">друг другу</span></h2>
+
+            <div class="letter-box">
+                <div class="letter-text">
+                    <p>
+                        «Спасибо, что ты есть. Спасибо за каждый день, за каждую улыбку,
+                        за каждое объятие. Ты — моё вдохновение, моя радость,
+                        мой самый родной человек.
+                    </p>
+                    <p style="margin-top:12px;">
+                        Я люблю тебя. С каждым днём всё сильнее.
+                        И я хочу, чтобы ты знала/знал — я всегда буду рядом.
+                        Ты — моя судьба.»
+                    </p>
+                </div>
+                <div class="letter-sign">❤️ Твоя/Твой навсегда</div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        СЮРПРИЗ
+        ============================================================ -->
+        <section class="surprise-section">
+            <h2 class="section-title">🎁 Сюрприз <span class="pink">для вас</span></h2>
+
+            <button class="kiss-btn" id="kissBtn">
+                <span class="heart-icon">💋</span>
+                <span>Поцеловать</span>
+                <span class="count" id="kissCount">0</span>
+            </button>
+
+            <br />
+
+            <button class="confetti-btn" id="confettiBtn">
+                <span>🎉</span> Запустить салют
+            </button>
+        </section>
+
+        <!-- ============================================================
+        ФУТЕР
+        ============================================================ -->
+        <footer class="footer">
+            <div class="brand">SQST <span class="heart">❤</span> Сделано с душой</div>
+            <p>© 2026 · сайты-свидания · Ульяновск</p>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================
+    КОНФЕТТИ
+    ============================================================ -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- ============================================================
+    СКРИПТЫ
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // СЧЁТЧИК ДНЕЙ ВМЕСТЕ
+        // ============================================================
+        const startDate = new Date('2023-03-03');
+
+        function updateDaysTogether() {
+            const now = new Date();
+            const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysCounter').textContent = diff >= 0 ? diff : 0;
+        }
+        updateDaysTogether();
+
+        // ============================================================
+        // ТАЙМЕР ДО ГОДОВЩИНЫ
+        // ============================================================
+        function updateTimer() {
+            const now = new Date();
+            let target = new Date('2026-03-03T00:00:00');
+            if (now > target) {
+                target = new Date('2027-03-03T00:00:00');
+            }
+            let diff = Math.floor((target - now) / 1000);
+            if (diff < 0) diff = 0;
+
+            const days = String(Math.floor(diff / 86400)).padStart(2, '0');
+            diff -= days * 86400;
+            const hours = String(Math.floor(diff / 3600)).padStart(2, '0');
+            diff -= hours * 3600;
+            const minutes = String(Math.floor(diff / 60)).padStart(2, '0');
+            const seconds = String(diff % 60).padStart(2, '0');
+
+            document.getElementById('tDays').textContent = days;
+            document.getElementById('tHours').textContent = hours;
+            document.getElementById('tMinutes').textContent = minutes;
+            document.getElementById('tSeconds').textContent = seconds;
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        // ============================================================
+        // МУЗЫКА
+        // ============================================================
+        const musicBtn = document.getElementById('musicBtn');
+        let audio = null;
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', function() {
+            if (!audio) {
+                audio = new Audio();
+                audio.src = 'song.mp3';
+                audio.loop = true;
+                audio.volume = 0.4;
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                document.getElementById('musicStatus').textContent = '▶';
+            } else {
+                audio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        document.getElementById('musicStatus').textContent = '⏸';
+                    })
+                    .catch(() => {
+                        alert('⚠️ Добавь song.mp3 в папку с сайтом!');
+                    });
+            }
+        });
+
+        // ============================================================
+        // ВИДЕО — АВТОЗАПУСК ПРИ НАВЕДЕНИИ
+        // ============================================================
+        document.querySelectorAll('.polaroid video').forEach(video => {
+            video.addEventListener('mouseenter', function() {
+                this.play().catch(() => {});
+            });
+            video.addEventListener('mouseleave', function() {
+                this.pause();
+                this.currentTime = 0;
+            });
+        });
+
+        // ============================================================
+        // СЧЁТЧИК ПОЦЕЛУЕВ
+        // ============================================================
+        let kissCount = parseInt(localStorage.getItem('kissCount') || '0');
+
+        function updateKissDisplay() {
+            document.getElementById('kissCount').textContent = kissCount;
+        }
+        updateKissDisplay();
+
+        document.getElementById('kissBtn').addEventListener('click', function() {
+            kissCount++;
+            localStorage.setItem('kissCount', String(kissCount));
+            updateKissDisplay();
+
+            // анимация сердечек
+            const heart = document.createElement('div');
+            heart.textContent = '💕';
+            heart.style.cssText =
+                `position:fixed; font-size:3rem; left:${Math.random()*80+10}%; top:30%; pointer-events:none; z-index:9998; animation: hugPop 1.5s ease forwards;`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1600);
+
+            // анимация для кнопки
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => this.style.transform = 'scale(1)', 200);
+        });
+
+        // ============================================================
+        // КОНФЕТТИ
+        // ============================================================
+        const confettiContainer = document.getElementById('confettiContainer');
+        const confettiEmojis = ['❤️', '💕', '💗', '💖', '🌸', '🌺', '✨', '⭐', '🎉', '🎊'];
+
+        function launchConfetti(count = 40) {
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-piece';
+                el.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.fontSize = (Math.random() * 24 + 16) + 'px';
+                el.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+                el.style.animationDelay = (Math.random() * 1.2) + 's';
+                confettiContainer.appendChild(el);
+                setTimeout(() => el.remove(), 4500);
+            }
+        }
+
+        document.getElementById('confettiBtn').addEventListener('click', function() {
+            launchConfetti(60);
+            this.textContent = '🎉 Салют!';
+            setTimeout(() => {
+                this.textContent = '🎉 Запустить салют';
+            }, 1500);
+        });
+
+        // автозапуск конфетти при загрузке
+        setTimeout(() => launchConfetti(15), 800);
+
+        // ============================================================
+        // АНИМАЦИЯ ДЛЯ ПОЦЕЛУЯ
+        // ============================================================
+        const style = document.createElement('style');
+        style.textContent =
+            `@keyframes hugPop { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-200px) scale(1.2); opacity: 0; } }`;
+        document.head.appendChild(style);
+
+        console.log('❤️ Сайт для Алины и Ратмира готов! ❤️');
+    </script>
+
+</body>
+</html>
