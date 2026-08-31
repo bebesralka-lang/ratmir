@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>София ❤️ Ратмир — наша история</title>
+    <title>София ❤️ Ратмир — с днём рождения!</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
         /* =============================================================
@@ -134,6 +134,53 @@
                 inset 0 0 50px rgba(225, 130, 195, 0.03);
         }
 
+        /* ===== ПОЗДРАВЛЕНИЕ НАД БЛОКОМ ===== */
+        .greeting-wrapper {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .birthday-greeting {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 3.4rem);
+            font-weight: 700;
+            color: var(--gold-light);
+            text-shadow:
+                0 0 20px rgba(201, 169, 110, 0.2),
+                0 0 40px rgba(201, 169, 110, 0.1),
+                0 0 80px rgba(201, 169, 110, 0.05);
+            letter-spacing: 3px;
+            animation: sparkleGreeting 2.5s ease-in-out infinite;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-light), #f0e6c0, var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(201, 169, 110, 0.15));
+        }
+
+        .birthday-greeting .pink-text {
+            background: linear-gradient(135deg, var(--pink), #f0a0d0, var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 40px rgba(225, 130, 195, 0.2));
+        }
+
+        @keyframes sparkleGreeting {
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 30px rgba(201, 169, 110, 0.1));
+            }
+            50% {
+                transform: scale(1.02);
+                filter: drop-shadow(0 0 60px rgba(201, 169, 110, 0.2));
+            }
+        }
+
         /* ===== БЛОК С ФОТО И ИМЕНАМИ ===== */
         .hero-photo-block {
             position: relative;
@@ -196,18 +243,18 @@
 
         .hero-photo-block .logo-top {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             letter-spacing: 8px;
             color: var(--gold);
-            margin-bottom: 10px;
-            opacity: 0.5;
+            margin-bottom: 6px;
+            opacity: 0.4;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         /* ===== ГРАВИРОВКА ===== */
         .hero-photo-block .names {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
             color: #fff;
             letter-spacing: 4px;
@@ -240,7 +287,7 @@
 
         .hero-photo-block .names .heart {
             color: var(--pink);
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(1.5rem, 3.5vw, 2.8rem);
             display: inline-block;
             animation: heartbeat 1.8s infinite;
             text-shadow: 0 0 40px rgba(225, 130, 195, 0.15);
@@ -257,21 +304,21 @@
         }
 
         .hero-photo-block .subtitle {
-            font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+            font-size: clamp(0.8rem, 1.4vw, 1.1rem);
             color: var(--gold-light);
-            margin-top: 6px;
+            margin-top: 4px;
             font-style: italic;
             letter-spacing: 3px;
-            opacity: 0.7;
+            opacity: 0.6;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         .hero-photo-block .date {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 2px;
             letter-spacing: 2px;
-            opacity: 0.5;
+            opacity: 0.4;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -765,7 +812,7 @@
                 font-size: 1.6rem;
             }
             .hero-photo-block .names {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .hero-photo-block .names .engrave {
                 letter-spacing: 3px;
@@ -806,6 +853,9 @@
             .kiss-btn .count {
                 font-size: 1.2rem;
             }
+            .birthday-greeting {
+                font-size: 1.6rem;
+            }
         }
 
         @media (max-width: 450px) {
@@ -827,16 +877,16 @@
                 top: 6px;
             }
             .hero-photo-block .names {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             .hero-photo-block .names .engrave {
                 letter-spacing: 2px;
             }
             .hero-photo-block .subtitle {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .hero-photo-block .date {
-                font-size: 0.65rem;
+                font-size: 0.55rem;
             }
             .photo-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -861,6 +911,13 @@
             .hero .counter .label {
                 font-size: 0.6rem;
             }
+            .birthday-greeting {
+                font-size: 1.2rem;
+            }
+            .hero-photo-block .logo-top {
+                font-size: 0.7rem;
+                letter-spacing: 4px;
+            }
         }
     </style>
 </head>
@@ -874,10 +931,18 @@
     <div class="container">
 
         <!-- ============================================================
-        ГЛАВНЫЙ ЭКРАН (HERO) — ФОТО 1 (6).jpg
+        ГЛАВНЫЙ ЭКРАН (HERO) — ПОЗДРАВЛЕНИЕ НАД БЛОКОМ
         ============================================================ -->
         <section class="hero">
 
+            <!-- ПОЗДРАВЛЕНИЕ С ДНЁМ РОЖДЕНИЯ НАД БЛОКОМ -->
+            <div class="greeting-wrapper">
+                <div class="birthday-greeting">
+                    🎂 С днём рождения, <span class="pink-text">София</span>! 🎂
+                </div>
+            </div>
+
+            <!-- БЛОК С ФОТО И ИМЕНАМИ -->
             <div class="hero-photo-block">
                 <img src="1 (6).jpg" alt="София и Ратмир" />
                 <div class="overlay"></div>
@@ -893,6 +958,7 @@
                 </div>
             </div>
 
+            <!-- СЧЁТЧИК -->
             <div class="counter">
                 <span class="number" id="daysCounter">0</span>
                 <span class="label">дней с нашей встречи</span>
@@ -912,38 +978,38 @@
         </section>
 
         <!-- ============================================================
-        ВИДЕО (поляроиды на ниточке)
+        ВИДЕО (поляроиды на ниточке) — названия без изменений
         ============================================================ -->
         <section class="video-section">
             <h2 class="section-title">🎬 Наши <span class="pink">искренние моменты</span></h2>
-            <p class="section-sub">кадры, в которых мы настоящие</p>
+            <p class="section-sub">нажми на видео, чтобы посмотреть</p>
 
             <div class="string">
                 <div class="polaroid">
-                    <video src="1 (1).mp4" muted loop playsinline></video>
+                    <video src="1 (1).mp4" muted playsinline preload="metadata" poster="1 (1).jpg"></video>
                     <div class="caption">✨ наш первый разговор</div>
                 </div>
                 <div class="polaroid">
-                    <video src="1 (2).mp4" muted loop playsinline></video>
+                    <video src="1 (2).mp4" muted playsinline preload="metadata" poster="1 (2).jpg"></video>
                     <div class="caption">🌅 момент, который запомнился</div>
                 </div>
                 <div class="polaroid">
-                    <video src="1 (3).mp4" muted loop playsinline></video>
+                    <video src="1 (3).mp4" muted playsinline preload="metadata" poster="1 (3).jpg"></video>
                     <div class="caption">🎡 просто быть рядом</div>
                 </div>
                 <div class="polaroid">
-                    <video src="1 (4).mp4" muted loop playsinline></video>
+                    <video src="1 (4).mp4" muted playsinline preload="metadata" poster="1 (4).jpg"></video>
                     <div class="caption">❄️ когда не нужны слова</div>
                 </div>
                 <div class="polaroid">
-                    <video src="1 (5).mp4" muted loop playsinline></video>
+                    <video src="1 (5).mp4" muted playsinline preload="metadata" poster="1 (5).jpg"></video>
                     <div class="caption">🌸 наш общий свет</div>
                 </div>
             </div>
         </section>
 
         <!-- ============================================================
-        ФОТОГАЛЕРЕЯ (5 фото, без надписей)
+        ФОТОГАЛЕРЕЯ
         ============================================================ -->
         <section class="photo-section">
             <h2 class="section-title">📷 Наши <span class="pink">искренние кадры</span></h2>
@@ -969,7 +1035,7 @@
         </section>
 
         <!-- ============================================================
-        ТАЙМЕР (просто счётчик дней с 3 марта 2023)
+        ТАЙМЕР
         ============================================================ -->
         <section class="timer-section">
             <h2 class="section-title">⏳ Мы знакомы <span class="pink">уже</span></h2>
@@ -1049,7 +1115,7 @@
         updateDaysTogether();
 
         // ============================================================
-        // ТАЙМЕР (просто счётчик времени с 3 марта 2023)
+        // ТАЙМЕР
         // ============================================================
         function updateTimer() {
             const now = new Date();
@@ -1101,9 +1167,19 @@
         });
 
         // ============================================================
-        // ВИДЕО — АВТОЗАПУСК ПРИ НАВЕДЕНИИ
+        // ВИДЕО — КЛИК ДЛЯ ВОСПРОИЗВЕДЕНИЯ (для телефонов)
         // ============================================================
         document.querySelectorAll('.polaroid video').forEach(video => {
+            // Для телефонов: клик = воспроизведение/пауза
+            video.addEventListener('click', function() {
+                if (this.paused) {
+                    this.play().catch(() => {});
+                } else {
+                    this.pause();
+                }
+            });
+
+            // Для компьютеров: автозапуск при наведении
             video.addEventListener('mouseenter', function() {
                 this.play().catch(() => {});
             });
@@ -1158,10 +1234,7 @@
             setTimeout(() => el.remove(), 13000);
         }
 
-        // создаём сердечки каждые 1.5 секунды
         setInterval(createFallingHeart, 1000);
-
-        // сразу несколько при загрузке
         for (let i = 0; i < 8; i++) {
             setTimeout(createFallingHeart, i * 400);
         }
@@ -1204,7 +1277,7 @@
             `@keyframes hugPop { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-200px) scale(1.2); opacity: 0; } }`;
         document.head.appendChild(style);
 
-        console.log('❤️ Сайт для Софии и Ратмира готов! ❤️');
+        console.log('❤️ Сайт для Софии и Ратмира готов! С днём рождения, София! 🎂');
     </script>
 
 </body>
