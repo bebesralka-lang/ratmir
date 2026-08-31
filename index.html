@@ -105,7 +105,7 @@
         }
 
         /* =============================================================
-                   ШАПКА (HERO) — ФОТО ВНУТРИ БЛОКА
+                   ШАПКА (HERO)
                 ============================================================= */
         .hero {
             min-height: 90vh;
@@ -134,7 +134,7 @@
                 inset 0 0 50px rgba(225, 130, 195, 0.03);
         }
 
-        /* ===== ПОЗДРАВЛЕНИЕ НАД БЛОКОМ ===== */
+        /* ===== ПОЗДРАВЛЕНИЕ С ДНЁМ РОЖДЕНИЯ — ГРАВИРОВКА + СВЕЧЕНИЕ ===== */
         .greeting-wrapper {
             width: 100%;
             max-width: 800px;
@@ -146,38 +146,60 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 5vw, 3.4rem);
             font-weight: 700;
-            color: var(--gold-light);
-            text-shadow:
-                0 0 20px rgba(201, 169, 110, 0.2),
-                0 0 40px rgba(201, 169, 110, 0.1),
-                0 0 80px rgba(201, 169, 110, 0.05);
-            letter-spacing: 3px;
-            animation: sparkleGreeting 2.5s ease-in-out infinite;
+            letter-spacing: 4px;
             display: inline-block;
-            background: linear-gradient(135deg, var(--gold-light), #f0e6c0, var(--gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 30px rgba(201, 169, 110, 0.15));
+            position: relative;
+            color: #f0ece6;
+            text-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.03),
+                0 2px 0 rgba(0, 0, 0, 0.3),
+                0 3px 0 rgba(0, 0, 0, 0.2),
+                0 4px 0 rgba(0, 0, 0, 0.15),
+                0 0 30px rgba(201, 169, 110, 0.05);
+            animation: engraveGlow 3s ease-in-out infinite;
         }
 
         .birthday-greeting .pink-text {
-            background: linear-gradient(135deg, var(--pink), #f0a0d0, var(--pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 40px rgba(225, 130, 195, 0.2));
+            color: var(--gold-light);
+            text-shadow:
+                0 1px 0 rgba(255, 215, 0, 0.03),
+                0 2px 0 rgba(0, 0, 0, 0.3),
+                0 3px 0 rgba(0, 0, 0, 0.2),
+                0 0 40px rgba(201, 169, 110, 0.08);
         }
 
-        @keyframes sparkleGreeting {
+        /* Эффект гравировки */
+        .birthday-greeting::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.02) 0%,
+                    rgba(201, 169, 110, 0.02) 30%,
+                    rgba(0, 0, 0, 0.02) 60%,
+                    rgba(0, 0, 0, 0.04) 100%);
+            pointer-events: none;
+            border-radius: 2px;
+        }
+
+        @keyframes engraveGlow {
             0%,
             100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 30px rgba(201, 169, 110, 0.1));
+                text-shadow:
+                    0 1px 0 rgba(255, 255, 255, 0.03),
+                    0 2px 0 rgba(0, 0, 0, 0.3),
+                    0 3px 0 rgba(0, 0, 0, 0.2),
+                    0 0 30px rgba(201, 169, 110, 0.05);
+                filter: drop-shadow(0 0 20px rgba(201, 169, 110, 0.03));
             }
             50% {
-                transform: scale(1.02);
-                filter: drop-shadow(0 0 60px rgba(201, 169, 110, 0.2));
+                text-shadow:
+                    0 1px 0 rgba(255, 255, 255, 0.03),
+                    0 2px 0 rgba(0, 0, 0, 0.3),
+                    0 3px 0 rgba(0, 0, 0, 0.2),
+                    0 0 60px rgba(201, 169, 110, 0.15),
+                    0 0 120px rgba(201, 169, 110, 0.05);
+                filter: drop-shadow(0 0 40px rgba(201, 169, 110, 0.08));
             }
         }
 
@@ -251,7 +273,7 @@
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* ===== ГРАВИРОВКА ===== */
+        /* ===== ГРАВИРОВКА ИМЁН ===== */
         .hero-photo-block .names {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2rem, 6vw, 4rem);
@@ -404,7 +426,7 @@
         }
 
         /* =============================================================
-                   ПОЛЯРОИДЫ НА НИТОЧКЕ (ВИДЕО)
+                   ВИДЕО (поляроиды)
                 ============================================================= */
         .video-section {
             padding: 30px 0 20px;
@@ -521,7 +543,7 @@
         }
 
         /* =============================================================
-                   ГАЛЕРЕЯ ФОТО (БЕЗ НАДПИСЕЙ, ТОЛЬКО СВЕЧЕНИЕ)
+                   ФОТОГАЛЕРЕЯ
                 ============================================================= */
         .photo-section {
             padding: 30px 0 20px;
@@ -572,7 +594,7 @@
         }
 
         /* =============================================================
-                   ТАЙМЕР (ПРОСТО СЧЁТЧИК)
+                   ТАЙМЕР
                 ============================================================= */
         .timer-section {
             padding: 30px 0 20px;
@@ -823,9 +845,6 @@
             .polaroid {
                 width: 140px;
             }
-            .polaroid video {
-                aspect-ratio: 1 / 1;
-            }
             .string {
                 gap: 16px 24px;
                 padding: 30px 6px 16px;
@@ -855,6 +874,7 @@
             }
             .birthday-greeting {
                 font-size: 1.6rem;
+                letter-spacing: 2px;
             }
         }
 
@@ -862,9 +882,6 @@
             .polaroid {
                 width: 110px;
                 padding: 4px 4px 10px 4px;
-            }
-            .polaroid video {
-                border-radius: 4px;
             }
             .polaroid .caption {
                 font-size: 0.45rem;
@@ -913,6 +930,7 @@
             }
             .birthday-greeting {
                 font-size: 1.2rem;
+                letter-spacing: 1px;
             }
             .hero-photo-block .logo-top {
                 font-size: 0.7rem;
@@ -935,7 +953,7 @@
         ============================================================ -->
         <section class="hero">
 
-            <!-- ПОЗДРАВЛЕНИЕ С ДНЁМ РОЖДЕНИЯ НАД БЛОКОМ -->
+            <!-- ПОЗДРАВЛЕНИЕ С ДНЁМ РОЖДЕНИЯ — ГРАВИРОВКА + СВЕЧЕНИЕ -->
             <div class="greeting-wrapper">
                 <div class="birthday-greeting">
                     🎂 С днём рождения, <span class="pink-text">София</span>! 🎂
@@ -978,7 +996,7 @@
         </section>
 
         <!-- ============================================================
-        ВИДЕО (поляроиды на ниточке) — названия без изменений
+        ВИДЕО (поляроиды на ниточке)
         ============================================================ -->
         <section class="video-section">
             <h2 class="section-title">🎬 Наши <span class="pink">искренние моменты</span></h2>
@@ -1167,10 +1185,9 @@
         });
 
         // ============================================================
-        // ВИДЕО — КЛИК ДЛЯ ВОСПРОИЗВЕДЕНИЯ (для телефонов)
+        // ВИДЕО — КЛИК ДЛЯ ВОСПРОИЗВЕДЕНИЯ
         // ============================================================
         document.querySelectorAll('.polaroid video').forEach(video => {
-            // Для телефонов: клик = воспроизведение/пауза
             video.addEventListener('click', function() {
                 if (this.paused) {
                     this.play().catch(() => {});
@@ -1178,8 +1195,6 @@
                     this.pause();
                 }
             });
-
-            // Для компьютеров: автозапуск при наведении
             video.addEventListener('mouseenter', function() {
                 this.play().catch(() => {});
             });
