@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Алина ❤️ Ратмир — наша история</title>
+    <title>София ❤️ Ратмир — наша история</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
         /* =============================================================
@@ -68,7 +68,7 @@
         }
 
         /* =============================================================
-                   ШАПКА (HERO)
+                   ШАПКА (HERO) — ГРАВИРОВКА
                 ============================================================= */
         .hero {
             min-height: 90vh;
@@ -111,20 +111,64 @@
             opacity: 0.6;
         }
 
+        /* ===== ГРАВИРОВКА ===== */
         .hero .names {
             font-family: 'Playfair Display', serif;
             font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 700;
             color: #fff;
-            text-shadow: 0 0 60px rgba(225, 130, 195, 0.15);
+            text-shadow: 0 0 60px rgba(225, 130, 195, 0.08);
             letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
         }
+
+        /* Эффект гравировки */
+        .hero .names .engrave {
+            position: relative;
+            display: inline-block;
+            color: #f0ece6;
+            text-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.03),
+                0 2px 0 rgba(0, 0, 0, 0.2),
+                0 3px 0 rgba(0, 0, 0, 0.15),
+                0 4px 0 rgba(0, 0, 0, 0.1),
+                0 0 30px rgba(201, 169, 110, 0.03);
+            letter-spacing: 6px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero .names .engrave::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.02) 0%,
+                    rgba(201, 169, 110, 0.02) 30%,
+                    rgba(0, 0, 0, 0.02) 60%,
+                    rgba(0, 0, 0, 0.04) 100%);
+            pointer-events: none;
+            border-radius: 2px;
+        }
+
+        .hero .names .engrave .gold-engrave {
+            color: var(--gold-light);
+            text-shadow:
+                0 1px 0 rgba(255, 215, 0, 0.03),
+                0 2px 0 rgba(0, 0, 0, 0.2),
+                0 3px 0 rgba(0, 0, 0, 0.15),
+                0 0 40px rgba(201, 169, 110, 0.04);
+        }
+
         .hero .names .heart {
             color: var(--pink);
             font-size: clamp(2rem, 5vw, 3.5rem);
             display: inline-block;
             animation: heartbeat 1.8s infinite;
+            text-shadow: 0 0 40px rgba(225, 130, 195, 0.1);
         }
+
         @keyframes heartbeat {
             0%,
             100% {
@@ -150,6 +194,15 @@
             margin-top: 8px;
             letter-spacing: 2px;
             opacity: 0.6;
+        }
+
+        .hero .status {
+            font-size: 0.9rem;
+            color: var(--pink);
+            margin-top: 6px;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            font-style: italic;
         }
 
         .hero .counter {
@@ -228,7 +281,6 @@
             padding: 40px 10px 20px;
         }
 
-        /* ниточка */
         .string::before {
             content: '';
             position: absolute;
@@ -262,7 +314,6 @@
             border-color: rgba(201, 169, 110, 0.15);
         }
 
-        /* прищепка */
         .polaroid::before {
             content: '📎';
             position: absolute;
@@ -381,33 +432,6 @@
         }
 
         /* =============================================================
-                   ИСТОРИЯ ЛЮБВИ
-                ============================================================= */
-        .story-section {
-            padding: 30px 0 20px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
-            margin-bottom: 30px;
-        }
-
-        .story-text {
-            max-width: 750px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-        .story-text .gold {
-            color: var(--gold);
-            font-style: normal;
-        }
-        .story-text .pink {
-            color: var(--pink);
-            font-style: normal;
-        }
-
-        /* =============================================================
                    ТАЙМЕР
                 ============================================================= */
         .timer-section {
@@ -446,54 +470,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.5;
-        }
-
-        /* =============================================================
-                   ПОСЛАНИЕ
-                ============================================================= */
-        .letter-section {
-            padding: 30px 0 20px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
-            margin-bottom: 30px;
-        }
-
-        .letter-box {
-            max-width: 650px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(201, 169, 110, 0.06);
-            border-radius: 24px;
-            padding: 30px 35px;
-            position: relative;
-        }
-
-        .letter-box::before {
-            content: '💌';
-            position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-        }
-
-        .letter-box .letter-text {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            font-style: italic;
-            text-align: center;
-        }
-        .letter-box .letter-text .gold {
-            color: var(--gold);
-            font-style: normal;
-        }
-        .letter-box .letter-sign {
-            text-align: right;
-            margin-top: 16px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--pink);
-            letter-spacing: 2px;
         }
 
         /* =============================================================
@@ -635,6 +611,9 @@
             .hero .names {
                 font-size: 2.6rem;
             }
+            .hero .names .engrave {
+                letter-spacing: 3px;
+            }
             .hero .counter .number {
                 font-size: 1.8rem;
             }
@@ -663,12 +642,6 @@
             }
             .timer-item .number {
                 font-size: 1.8rem;
-            }
-            .letter-box {
-                padding: 20px 18px;
-            }
-            .letter-box .letter-text {
-                font-size: 0.85rem;
             }
             .kiss-btn {
                 padding: 10px 24px;
@@ -700,6 +673,9 @@
             .hero .names {
                 font-size: 2rem;
             }
+            .hero .names .engrave {
+                letter-spacing: 2px;
+            }
             .photo-grid {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
                 gap: 6px;
@@ -717,15 +693,6 @@
             .timer-item .label {
                 font-size: 0.5rem;
             }
-            .letter-box {
-                padding: 16px 12px;
-            }
-            .letter-box .letter-text {
-                font-size: 0.75rem;
-            }
-            .letter-box .letter-sign {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -734,18 +701,21 @@
     <div class="container">
 
         <!-- ============================================================
-        ГЛАВНЫЙ ЭКРАН (HERO)
+        ГЛАВНЫЙ ЭКРАН (HERO) — ГРАВИРОВКА
         ============================================================ -->
         <section class="hero">
             <div class="logo-top">SQST ✦</div>
             <div class="names">
-                Алина <span class="heart">❤</span> Ратмир
+                <span class="engrave"><span class="gold-engrave">София</span></span>
+                <span class="heart">❤</span>
+                <span class="engrave"><span class="gold-engrave">Ратмир</span></span>
             </div>
-            <div class="subtitle">— наша история любви —</div>
+            <div class="subtitle">— наша история —</div>
             <div class="date">с 3 марта 2023</div>
+            <div class="status">✨ знакомы, но ещё не вместе ✨</div>
             <div class="counter">
                 <span class="number" id="daysCounter">0</span>
-                <span class="label">дней вместе</span>
+                <span class="label">дней с нашей встречи</span>
             </div>
         </section>
 
@@ -764,29 +734,29 @@
         ВИДЕО (поляроиды на ниточке)
         ============================================================ -->
         <section class="video-section">
-            <h2 class="section-title">🎬 Наши <span class="pink">моменты</span></h2>
-            <p class="section-sub">живые кадры, которые мы храним</p>
+            <h2 class="section-title">🎬 Наши <span class="pink">искренние моменты</span></h2>
+            <p class="section-sub">кадры, в которых мы настоящие</p>
 
             <div class="string">
                 <div class="polaroid">
                     <video src="video1.mp4" muted loop playsinline></video>
-                    <div class="caption">✨ наш первый танец</div>
+                    <div class="caption">✨ наш первый разговор</div>
                 </div>
                 <div class="polaroid">
                     <video src="video2.mp4" muted loop playsinline></video>
-                    <div class="caption">🌅 закат на море</div>
+                    <div class="caption">🌅 момент, который запомнился</div>
                 </div>
                 <div class="polaroid">
                     <video src="video3.mp4" muted loop playsinline></video>
-                    <div class="caption">🎡 счастье в парке</div>
+                    <div class="caption">🎡 просто быть рядом</div>
                 </div>
                 <div class="polaroid">
                     <video src="video4.mp4" muted loop playsinline></video>
-                    <div class="caption">❄️ зимняя сказка</div>
+                    <div class="caption">❄️ когда не нужны слова</div>
                 </div>
                 <div class="polaroid">
                     <video src="video5.mp4" muted loop playsinline></video>
-                    <div class="caption">🌸 весеннее утро</div>
+                    <div class="caption">🌸 наш общий свет</div>
                 </div>
             </div>
         </section>
@@ -795,53 +765,30 @@
         ФОТОГАЛЕРЕЯ
         ============================================================ -->
         <section class="photo-section">
-            <h2 class="section-title">📷 Кадры, которые <span class="pink">мы храним</span></h2>
-            <p class="section-sub">наши самые тёплые моменты</p>
+            <h2 class="section-title">📷 Наши <span class="pink">искренние кадры</span></h2>
+            <p class="section-sub">то, что мы бережно храним в памяти</p>
 
             <div class="photo-grid">
                 <div class="photo-item">
                     <img src="photo1.jpg" alt="Фото 1" />
-                    <div class="photo-caption">💕 первый поцелуй</div>
+                    <div class="photo-caption">💕 наш первый разговор</div>
                 </div>
                 <div class="photo-item">
                     <img src="photo2.jpg" alt="Фото 2" />
-                    <div class="photo-caption">🌊 у океана</div>
+                    <div class="photo-caption">🌊 когда всё казалось важным</div>
                 </div>
                 <div class="photo-item">
                     <img src="photo3.jpg" alt="Фото 3" />
-                    <div class="photo-caption">🎂 день рождения</div>
+                    <div class="photo-caption">🎂 тот самый день</div>
                 </div>
                 <div class="photo-item">
                     <img src="photo4.jpg" alt="Фото 4" />
-                    <div class="photo-caption">🍂 осенняя прогулка</div>
+                    <div class="photo-caption">🍂 просто быть собой</div>
                 </div>
                 <div class="photo-item">
                     <img src="photo5.jpg" alt="Фото 5" />
-                    <div class="photo-caption">✨ просто вместе</div>
+                    <div class="photo-caption">✨ когда рядом — спокойно</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-        ИСТОРИЯ ЛЮБВИ
-        ============================================================ -->
-        <section class="story-section">
-            <h2 class="section-title">📖 Наша <span class="pink">история</span></h2>
-
-            <div class="story-text">
-                <p>
-                    Они встретились <span class="gold">3 марта 2023</span> года.
-                    С тех пор каждый день — это новая глава их книги любви.
-                </p>
-                <p style="margin-top:12px;">
-                    <span class="gold">Алина</span> и <span class="gold">Ратмир</span> —
-                    две половинки одного целого. Их история полна
-                    <span class="pink">нежности</span>, <span class="pink">смеха</span>
-                    и <span class="pink">тёплых объятий</span>.
-                </p>
-                <p style="margin-top:12px;">
-                    И это только начало их большого пути 💕
-                </p>
             </div>
         </section>
 
@@ -849,8 +796,8 @@
         ТАЙМЕР
         ============================================================ -->
         <section class="timer-section">
-            <h2 class="section-title">⏳ До нашей <span class="pink">годовщины</span></h2>
-            <p class="section-sub">3 марта 2026 — 3 года вместе</p>
+            <h2 class="section-title">⏳ До <span class="pink">важного дня</span></h2>
+            <p class="section-sub">3 марта 2026 — три года с нашей встречи</p>
 
             <div class="timer-box">
                 <div class="timer-item">
@@ -869,29 +816,6 @@
                     <div class="number" id="tSeconds">00</div>
                     <div class="label">секунд</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-        ПОСЛАНИЕ
-        ============================================================ -->
-        <section class="letter-section">
-            <h2 class="section-title">💌 Послание <span class="pink">друг другу</span></h2>
-
-            <div class="letter-box">
-                <div class="letter-text">
-                    <p>
-                        «Спасибо, что ты есть. Спасибо за каждый день, за каждую улыбку,
-                        за каждое объятие. Ты — моё вдохновение, моя радость,
-                        мой самый родной человек.
-                    </p>
-                    <p style="margin-top:12px;">
-                        Я люблю тебя. С каждым днём всё сильнее.
-                        И я хочу, чтобы ты знала/знал — я всегда буду рядом.
-                        Ты — моя судьба.»
-                    </p>
-                </div>
-                <div class="letter-sign">❤️ Твоя/Твой навсегда</div>
             </div>
         </section>
 
@@ -934,7 +858,7 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // СЧЁТЧИК ДНЕЙ ВМЕСТЕ
+        // СЧЁТЧИК ДНЕЙ С ВСТРЕЧИ
         // ============================================================
         const startDate = new Date('2023-03-03');
 
@@ -946,7 +870,7 @@
         updateDaysTogether();
 
         // ============================================================
-        // ТАЙМЕР ДО ГОДОВЩИНЫ
+        // ТАЙМЕР ДО 3 МАРТА 2026
         // ============================================================
         function updateTimer() {
             const now = new Date();
@@ -1031,7 +955,6 @@
             localStorage.setItem('kissCount', String(kissCount));
             updateKissDisplay();
 
-            // анимация сердечек
             const heart = document.createElement('div');
             heart.textContent = '💕';
             heart.style.cssText =
@@ -1039,7 +962,6 @@
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 1600);
 
-            // анимация для кнопки
             this.style.transform = 'scale(0.95)';
             setTimeout(() => this.style.transform = 'scale(1)', 200);
         });
@@ -1072,18 +994,17 @@
             }, 1500);
         });
 
-        // автозапуск конфетти при загрузке
         setTimeout(() => launchConfetti(15), 800);
 
         // ============================================================
-        // АНИМАЦИЯ ДЛЯ ПОЦЕЛУЯ
+        // АНИМАЦИЯ
         // ============================================================
         const style = document.createElement('style');
         style.textContent =
             `@keyframes hugPop { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-200px) scale(1.2); opacity: 0; } }`;
         document.head.appendChild(style);
 
-        console.log('❤️ Сайт для Алины и Ратмира готов! ❤️');
+        console.log('❤️ Сайт для Софии и Ратмира готов! ❤️');
     </script>
 
 </body>
