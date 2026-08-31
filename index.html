@@ -17,7 +17,9 @@
 
         :root {
             --pink: #e182c3;
+            --pink-glow: rgba(225, 130, 195, 0.4);
             --gold: #c9a96e;
+            --gold-glow: rgba(201, 169, 110, 0.35);
             --gold-light: #e8d5a3;
             --burgundy: #8e385c;
             --bg-dark: #1a1418;
@@ -68,6 +70,41 @@
         }
 
         /* =============================================================
+                   НЕОНОВАЯ ОКАНТОВКА ДЛЯ БЛОКОВ
+                ============================================================= */
+        .neon-border {
+            border: 2px solid rgba(225, 130, 195, 0.15);
+            box-shadow:
+                0 0 20px rgba(225, 130, 195, 0.05),
+                inset 0 0 20px rgba(225, 130, 195, 0.02);
+            transition: var(--transition);
+        }
+
+        .neon-border:hover {
+            border-color: rgba(225, 130, 195, 0.25);
+            box-shadow:
+                0 0 40px rgba(225, 130, 195, 0.08),
+                0 0 80px rgba(225, 130, 195, 0.04),
+                inset 0 0 40px rgba(225, 130, 195, 0.04);
+        }
+
+        .neon-gold {
+            border: 2px solid rgba(201, 169, 110, 0.12);
+            box-shadow:
+                0 0 20px rgba(201, 169, 110, 0.04),
+                inset 0 0 20px rgba(201, 169, 110, 0.02);
+            transition: var(--transition);
+        }
+
+        .neon-gold:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            box-shadow:
+                0 0 40px rgba(201, 169, 110, 0.06),
+                0 0 80px rgba(201, 169, 110, 0.03),
+                inset 0 0 40px rgba(201, 169, 110, 0.03);
+        }
+
+        /* =============================================================
                    ШАПКА (HERO) — ФОТО ВНУТРИ БЛОКА
                 ============================================================= */
         .hero {
@@ -83,7 +120,18 @@
             overflow: hidden;
             margin-bottom: 40px;
             background: var(--bg-dark);
-            border: 1px solid rgba(201, 169, 110, 0.06);
+            border: 2px solid rgba(225, 130, 195, 0.08);
+            box-shadow:
+                0 0 30px rgba(225, 130, 195, 0.03),
+                inset 0 0 30px rgba(225, 130, 195, 0.02);
+        }
+
+        .hero:hover {
+            border-color: rgba(225, 130, 195, 0.15);
+            box-shadow:
+                0 0 50px rgba(225, 130, 195, 0.05),
+                0 0 100px rgba(225, 130, 195, 0.03),
+                inset 0 0 50px rgba(225, 130, 195, 0.03);
         }
 
         /* ===== БЛОК С ФОТО И ИМЕНАМИ ===== */
@@ -95,11 +143,23 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(201, 169, 110, 0.06);
+            border: 2px solid rgba(201, 169, 110, 0.1);
+            box-shadow:
+                0 0 30px rgba(201, 169, 110, 0.04),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .hero-photo-block:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            box-shadow:
+                0 0 50px rgba(201, 169, 110, 0.06),
+                0 0 100px rgba(201, 169, 110, 0.03),
+                0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .hero-photo-block img {
@@ -215,16 +275,26 @@
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* ===== СЧЁТЧИК ПОД БЛОКОМ ===== */
+        /* =============================================================
+                   СЧЁТЧИК
+                ============================================================= */
         .hero .counter {
             margin-top: 24px;
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
             padding: 12px 28px;
             border-radius: 60px;
-            border: 1px solid rgba(201, 169, 110, 0.06);
+            border: 2px solid rgba(201, 169, 110, 0.06);
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.03);
+            transition: var(--transition);
             display: inline-block;
         }
+
+        .hero .counter:hover {
+            border-color: rgba(201, 169, 110, 0.15);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.05);
+        }
+
         .hero .counter .number {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
@@ -245,12 +315,20 @@
         .music-section {
             text-align: center;
             padding: 20px 0 30px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.04);
             margin-bottom: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
         }
+
+        .music-section:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.03);
+        }
+
         .music-btn {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(201, 169, 110, 0.1);
+            border: 2px solid rgba(201, 169, 110, 0.06);
             border-radius: 60px;
             padding: 12px 32px;
             color: var(--text);
@@ -261,11 +339,15 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.02);
         }
+
         .music-btn:hover {
             background: rgba(255, 255, 255, 0.06);
-            border-color: var(--gold);
+            border-color: rgba(201, 169, 110, 0.15);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.04);
         }
+
         .music-btn .icon {
             font-size: 1.4rem;
         }
@@ -279,8 +361,15 @@
                 ============================================================= */
         .video-section {
             padding: 30px 0 20px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.04);
             margin-bottom: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .video-section:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.03);
         }
 
         .string {
@@ -312,7 +401,8 @@
             box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
             width: 180px;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 2px solid rgba(225, 130, 195, 0.06);
+            box-shadow: 0 0 15px rgba(225, 130, 195, 0.02);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -321,8 +411,8 @@
 
         .polaroid:hover {
             transform: translateY(-8px) rotate(0deg);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(201, 169, 110, 0.15);
+            box-shadow: 0 0 40px rgba(225, 130, 195, 0.06), 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(225, 130, 195, 0.15);
         }
 
         .polaroid::before {
@@ -369,6 +459,7 @@
 
         .polaroid video:hover {
             filter: brightness(1.05);
+            box-shadow: 0 0 30px rgba(225, 130, 195, 0.05);
         }
 
         .polaroid .caption {
@@ -383,17 +474,24 @@
         }
 
         /* =============================================================
-                   ГАЛЕРЕЯ ФОТО
+                   ГАЛЕРЕЯ ФОТО (БЕЗ НАДПИСЕЙ, ТОЛЬКО СВЕЧЕНИЕ)
                 ============================================================= */
         .photo-section {
             padding: 30px 0 20px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.04);
             margin-bottom: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .photo-section:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.03);
         }
 
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 14px;
         }
 
@@ -401,7 +499,8 @@
             border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 1 / 1;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 2px solid rgba(225, 130, 195, 0.04);
+            box-shadow: 0 0 15px rgba(225, 130, 195, 0.01);
             cursor: pointer;
             transition: var(--transition);
             position: relative;
@@ -416,40 +515,30 @@
         }
 
         .photo-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(201, 169, 110, 0.15);
+            transform: scale(1.04);
+            border-color: rgba(225, 130, 195, 0.15);
+            box-shadow:
+                0 0 30px rgba(225, 130, 195, 0.06),
+                0 0 60px rgba(225, 130, 195, 0.03),
+                0 8px 30px rgba(0, 0, 0, 0.3);
             z-index: 2;
         }
 
-        .photo-item .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 8px 12px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(6px);
-            font-size: 0.55rem;
-            color: var(--text);
-            opacity: 0;
-            transition: var(--transition);
-            text-align: center;
-            font-style: italic;
-        }
-
-        .photo-item:hover .photo-caption {
-            opacity: 1;
-        }
-
         /* =============================================================
-                   ТАЙМЕР
+                   ТАЙМЕР (ПРОСТО СЧЁТЧИК)
                 ============================================================= */
         .timer-section {
             padding: 30px 0 20px;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.04);
             margin-bottom: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
             text-align: center;
+        }
+
+        .timer-section:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.03);
         }
 
         .timer-box {
@@ -462,11 +551,18 @@
 
         .timer-item {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(201, 169, 110, 0.06);
+            border: 2px solid rgba(201, 169, 110, 0.04);
             border-radius: 16px;
             padding: 14px 20px;
             min-width: 80px;
             text-align: center;
+            box-shadow: 0 0 15px rgba(201, 169, 110, 0.02);
+            transition: var(--transition);
+        }
+
+        .timer-item:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.04);
         }
 
         .timer-item .number {
@@ -489,13 +585,20 @@
         .surprise-section {
             padding: 30px 0 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.06);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.04);
             margin-bottom: 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .surprise-section:hover {
+            border-color: rgba(201, 169, 110, 0.1);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.03);
         }
 
         .kiss-btn {
             background: rgba(225, 130, 195, 0.08);
-            border: 2px solid rgba(225, 130, 195, 0.15);
+            border: 2px solid rgba(225, 130, 195, 0.1);
             border-radius: 60px;
             padding: 14px 40px;
             color: #fff;
@@ -506,7 +609,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 0 40px rgba(225, 130, 195, 0.03);
+            box-shadow: 0 0 25px rgba(225, 130, 195, 0.02);
         }
 
         .kiss-btn:hover {
@@ -530,7 +633,7 @@
 
         .confetti-btn {
             background: rgba(201, 169, 110, 0.06);
-            border: 1px solid rgba(201, 169, 110, 0.08);
+            border: 2px solid rgba(201, 169, 110, 0.06);
             border-radius: 60px;
             padding: 10px 28px;
             color: var(--text);
@@ -542,40 +645,46 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.02);
         }
 
         .confetti-btn:hover {
             background: rgba(201, 169, 110, 0.08);
             border-color: var(--gold);
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.04);
         }
 
         /* =============================================================
-                   ФУТЕР
+                   ПАДАЮЩИЕ СЕРДЕЧКИ
                 ============================================================= */
-        .footer {
-            text-align: center;
-            padding: 30px 20px 10px;
-            border-top: 1px solid rgba(201, 169, 110, 0.04);
-            margin-top: 10px;
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9997;
+            overflow: hidden;
         }
 
-        .footer .brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            color: var(--text-muted);
+        .heart-particle {
+            position: absolute;
+            font-size: 20px;
+            animation: heartFall linear forwards;
+            opacity: 0.6;
+            user-select: none;
         }
-        .footer .brand .gold {
-            color: var(--gold);
-        }
-        .footer .brand .heart {
-            color: var(--pink);
-        }
-        .footer p {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            margin-top: 6px;
-            opacity: 0.3;
+
+        @keyframes heartFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0.5);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg) scale(0.2);
+                opacity: 0;
+            }
         }
 
         /* =============================================================
@@ -607,6 +716,42 @@
                 transform: translateY(110vh) rotate(720deg) scale(0.2);
                 opacity: 0;
             }
+        }
+
+        /* =============================================================
+                   ФУТЕР
+                ============================================================= */
+        .footer {
+            text-align: center;
+            padding: 30px 20px 10px;
+            border-top: 2px solid rgba(201, 169, 110, 0.03);
+            margin-top: 10px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .footer:hover {
+            border-color: rgba(201, 169, 110, 0.08);
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.02);
+        }
+
+        .footer .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+        }
+        .footer .brand .gold {
+            color: var(--gold);
+        }
+        .footer .brand .heart {
+            color: var(--pink);
+        }
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 6px;
+            opacity: 0.3;
         }
 
         /* =============================================================
@@ -644,7 +789,7 @@
                 right: 2%;
             }
             .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
             }
             .timer-item {
@@ -694,7 +839,7 @@
                 font-size: 0.65rem;
             }
             .photo-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 6px;
             }
             .section-title {
@@ -721,16 +866,20 @@
 </head>
 <body>
 
+    <!-- ============================================================
+    ПАДАЮЩИЕ СЕРДЕЧКИ
+    ============================================================ -->
+    <div class="falling-hearts" id="fallingHearts"></div>
+
     <div class="container">
 
         <!-- ============================================================
-        ГЛАВНЫЙ ЭКРАН (HERO) — ФОТО ВНУТРИ БЛОКА
+        ГЛАВНЫЙ ЭКРАН (HERO) — ФОТО 1 (6).jpg
         ============================================================ -->
         <section class="hero">
 
-            <!-- БЛОК С ФОТО И ИМЕНАМИ -->
             <div class="hero-photo-block">
-                <img src="1 (1).jpg" alt="София и Ратмир" />
+                <img src="1 (6).jpg" alt="София и Ратмир" />
                 <div class="overlay"></div>
                 <div class="content">
                     <div class="logo-top">SQST ✦</div>
@@ -744,7 +893,6 @@
                 </div>
             </div>
 
-            <!-- СЧЁТЧИК -->
             <div class="counter">
                 <span class="number" id="daysCounter">0</span>
                 <span class="label">дней с нашей встречи</span>
@@ -795,46 +943,36 @@
         </section>
 
         <!-- ============================================================
-        ФОТОГАЛЕРЕЯ
+        ФОТОГАЛЕРЕЯ (5 фото, без надписей)
         ============================================================ -->
         <section class="photo-section">
             <h2 class="section-title">📷 Наши <span class="pink">искренние кадры</span></h2>
-            <p class="section-sub">то, что мы бережно храним в памяти</p>
+            <p class="section-sub">просто светитесь вместе</p>
 
             <div class="photo-grid">
                 <div class="photo-item">
                     <img src="1 (1).jpg" alt="Фото 1" />
-                    <div class="photo-caption">💕 наш первый разговор</div>
                 </div>
                 <div class="photo-item">
                     <img src="1 (2).jpg" alt="Фото 2" />
-                    <div class="photo-caption">🌊 когда всё казалось важным</div>
                 </div>
                 <div class="photo-item">
                     <img src="1 (3).jpg" alt="Фото 3" />
-                    <div class="photo-caption">🎂 тот самый день</div>
                 </div>
                 <div class="photo-item">
                     <img src="1 (4).jpg" alt="Фото 4" />
-                    <div class="photo-caption">🍂 просто быть собой</div>
                 </div>
                 <div class="photo-item">
                     <img src="1 (5).jpg" alt="Фото 5" />
-                    <div class="photo-caption">✨ когда рядом — спокойно</div>
-                </div>
-                <div class="photo-item">
-                    <img src="1 (6).jpg" alt="Фото 6" />
-                    <div class="photo-caption">💫 наш особенный момент</div>
                 </div>
             </div>
         </section>
 
         <!-- ============================================================
-        ТАЙМЕР
+        ТАЙМЕР (просто счётчик дней с 3 марта 2023)
         ============================================================ -->
         <section class="timer-section">
-            <h2 class="section-title">⏳ До <span class="pink">важного дня</span></h2>
-            <p class="section-sub">3 марта 2026 — три года с нашей встречи</p>
+            <h2 class="section-title">⏳ Мы знакомы <span class="pink">уже</span></h2>
 
             <div class="timer-box">
                 <div class="timer-item">
@@ -854,6 +992,10 @@
                     <div class="label">секунд</div>
                 </div>
             </div>
+
+            <p class="section-sub" style="margin-top:16px; font-size:0.85rem;">
+                с 3 марта 2023
+            </p>
         </section>
 
         <!-- ============================================================
@@ -907,22 +1049,16 @@
         updateDaysTogether();
 
         // ============================================================
-        // ТАЙМЕР ДО 3 МАРТА 2026
+        // ТАЙМЕР (просто счётчик времени с 3 марта 2023)
         // ============================================================
         function updateTimer() {
             const now = new Date();
-            let target = new Date('2026-03-03T00:00:00');
-            if (now > target) {
-                target = new Date('2027-03-03T00:00:00');
-            }
-            let diff = Math.floor((target - now) / 1000);
-            if (diff < 0) diff = 0;
+            const diff = Math.floor((now - startDate) / 1000);
+            if (diff < 0) return;
 
             const days = String(Math.floor(diff / 86400)).padStart(2, '0');
-            diff -= days * 86400;
-            const hours = String(Math.floor(diff / 3600)).padStart(2, '0');
-            diff -= hours * 3600;
-            const minutes = String(Math.floor(diff / 60)).padStart(2, '0');
+            const hours = String(Math.floor((diff % 86400) / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
             const seconds = String(diff % 60).padStart(2, '0');
 
             document.getElementById('tDays').textContent = days;
@@ -1002,6 +1138,33 @@
             this.style.transform = 'scale(0.95)';
             setTimeout(() => this.style.transform = 'scale(1)', 200);
         });
+
+        // ============================================================
+        // ПАДАЮЩИЕ СЕРДЕЧКИ
+        // ============================================================
+        const fallingContainer = document.getElementById('fallingHearts');
+        const heartEmojis = ['❤️', '💕', '💗', '💖'];
+
+        function createFallingHeart() {
+            const el = document.createElement('div');
+            el.className = 'heart-particle';
+            el.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (Math.random() * 20 + 14) + 'px';
+            el.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            el.style.animationDelay = '0s';
+            el.style.opacity = Math.random() * 0.4 + 0.2;
+            fallingContainer.appendChild(el);
+            setTimeout(() => el.remove(), 13000);
+        }
+
+        // создаём сердечки каждые 1.5 секунды
+        setInterval(createFallingHeart, 1000);
+
+        // сразу несколько при загрузке
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createFallingHeart, i * 400);
+        }
 
         // ============================================================
         // КОНФЕТТИ
